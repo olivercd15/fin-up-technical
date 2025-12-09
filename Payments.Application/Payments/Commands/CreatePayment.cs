@@ -44,18 +44,16 @@ namespace Payments.Application.Payments.Commands
         private readonly IWriteRepository<Payment> _writeRepo;
         private readonly IUnitOfWork _uow;
         private readonly IValidator<CreatePaymentCommand> _validator;
-        private readonly IEventBus _eventBus;
 
         public CreatePaymentCommandHandler(
             IWriteRepository<Payment> writeRepo,
             IUnitOfWork uow,
-            IValidator<CreatePaymentCommand> validator,
-            IEventBus eventBus)
+            IValidator<CreatePaymentCommand> validator
+            )
         {
             _writeRepo = writeRepo;
             _uow = uow;
             _validator = validator;
-            _eventBus = eventBus;
         }
 
         public async Task<ApiResponse<Payment>> Handle(CreatePaymentCommand req, CancellationToken ct)
