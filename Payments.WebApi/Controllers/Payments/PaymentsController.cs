@@ -16,30 +16,18 @@ namespace Payments.WebApi.Controllers.Payments
             _mediator = mediator;
         }
 
-        // ======================================
-        // POST api/payments
-        // ======================================
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] CreatePaymentCommand command)
+        public async Task<IActionResult> Create(CreatePaymentCommand command)
         {
-            var payment = await _mediator.Send(command);
-
-            return CreatedAtAction(
-                nameof(GetByCustomer),
-                new { customerId = payment.CustomerId },
-                payment
-            );
+            var result = await _mediator.Send(command);
+            return StatusCode(result.Code, result);
         }
 
-        // ======================================
-        // GET api/payments?customerId=...
-        // ======================================
         [HttpGet]
-        public async Task<IActionResult> GetByCustomer([FromQuery] Guid customerId)
+        public async Task<IActionResult> GetByCustomer(Guid customerId)
         {
             var result = await _mediator.Send(new GetPaymentsByCustomerQuery(customerId));
-
-            return Ok(result);
+            return StatusCode(result.Code, result);
         }
     }
 }

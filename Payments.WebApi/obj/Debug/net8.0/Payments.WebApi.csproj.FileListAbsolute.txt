@@ -147,3 +147,7 @@ C:\Users\Srodriguez\Documents\Oliver Carranza\MASTER\IAC\FinUpTechnical\Payments
 C:\Users\Srodriguez\Documents\Oliver Carranza\MASTER\IAC\FinUpTechnical\Payments.WebApi\obj\Debug\net8.0\Payments.WebApi.pdb
 C:\Users\Srodriguez\Documents\Oliver Carranza\MASTER\IAC\FinUpTechnical\Payments.WebApi\obj\Debug\net8.0\Payments.WebApi.genruntimeconfig.cache
 C:\Users\Srodriguez\Documents\Oliver Carranza\MASTER\IAC\FinUpTechnical\Payments.WebApi\obj\Debug\net8.0\ref\Payments.WebApi.dll
+C:\Users\Srodriguez\Documents\Oliver Carranza\MASTER\IAC\FinUpTechnical\Payments.WebApi\bin\Debug\net8.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Srodriguez\Documents\Oliver Carranza\MASTER\IAC\FinUpTechnical\Payments.WebApi\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\Srodriguez\Documents\Oliver Carranza\MASTER\IAC\FinUpTechnical\Payments.WebApi\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\Srodriguez\Documents\Oliver Carranza\MASTER\IAC\FinUpTechnical\Payments.WebApi\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll

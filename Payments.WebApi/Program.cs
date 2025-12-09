@@ -1,4 +1,3 @@
-using Microsoft.Extensions.DependencyInjection;
 using Payments.Application.Payments.Commands;
 using FluentValidation;
 using Payments.Infrastructure.DI;
@@ -10,6 +9,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddInfrastructure(
     builder.Configuration.GetConnectionString("DefaultConnection")
 );
+
+builder.Services.AddControllers()
+    .AddNewtonsoftJson();
 
 builder.Services.AddMediatR(typeof(CreatePaymentCommand).Assembly);
 
