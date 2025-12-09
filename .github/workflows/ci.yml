@@ -1,0 +1,55 @@
+name: CI - Payments API
+
+on:
+  push:
+    branches:
+      - develop
+      - main
+  pull_request:
+    branches:
+      - develop
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1) Checkout repository
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # 2) Install .NET SDK 8
+    - name: Setup .NET 8
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '8.0.x'
+
+    # 3) NuGet Package Cache
+    - name: Cache NuGet packages
+      uses: actions/cache@v3
+      with:
+        path: ~/.nuget/packages
+        key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
+        restore-keys: |
+          ${{ runner.os }}-nuget-
+
+    # 4) Restore dependencies
+    - name: Restore dependencies
+      run: dotnet restore
+
+    # 5) Build solution
+    - name: Build solution
+      run: dotnet build --configuration Release --no-restore
+
+    # 6) Run tests
+    - name: Run tests
+      run: dotnet test --configuration Release --no-build --logger "trx;LogFileName=test-results.trx"
+
+    # 7) Upload test results
+    - name: Upload test results
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-results
+        path: '**/test-results.trx'
