@@ -60,6 +60,7 @@ namespace Payments.Infrastructure.DI
             // Kafka (Event Bus)
             // ============================================================
             var kafkaServer = config["Kafka:BootstrapServers"];
+
             if (!string.IsNullOrWhiteSpace(kafkaServer))
             {
                 var producerConfig = new ProducerConfig
@@ -72,6 +73,10 @@ namespace Payments.Infrastructure.DI
                 );
 
                 services.AddScoped<IEventBus, KafkaEventBus>();
+            }
+            else
+            {
+                services.AddScoped<IEventBus, NullEventBus>();
             }
 
             return services;
