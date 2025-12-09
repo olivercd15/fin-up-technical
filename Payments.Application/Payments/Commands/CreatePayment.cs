@@ -57,7 +57,7 @@ namespace Payments.Application.Payments.Commands
 
         public async Task<Payment> Handle(CreatePaymentCommand req, CancellationToken ct)
         {
-            // Validación con FluentValidation
+            // FluentValidation
             var validation = await _validator.ValidateAsync(req, ct);
             if (!validation.IsValid)
             {
@@ -65,14 +65,14 @@ namespace Payments.Application.Payments.Commands
                 throw new AppValidationException(errors);
             }
 
-            // Reglas de negocio
+            // Business rules
             if (req.Currency == PaymentCurrency.USD)
                 throw new AppException("USD currency is not accepted.");
 
             if (req.Currency == PaymentCurrency.BOB && req.Amount > 1500)
                 throw new AppException("Amount exceeds maximum limit (1500 BOB).");
 
-            // Crear entidad
+            // Create payment
             var payment = new Payment(
                 req.CustomerId,
                 req.ServiceProvider,

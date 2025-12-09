@@ -13,16 +13,23 @@ namespace Payments.Infrastructure.Persistence
     {
         public PaymentsDbContext CreateDbContext(string[] args)
         {
-            // Ubicar el directorio del proyecto WebApi
-            var basePath = Path.Combine(Directory.GetCurrentDirectory(), "..", "Payments.WebApi");
+            // Detectar el folder de la solución
+            var solutionDir = Directory.GetCurrentDirectory();
 
-            IConfigurationRoot configuration = new ConfigurationBuilder()
-                .SetBasePath(basePath)
-                .AddJsonFile("appsettings.json", optional: false)
-                .AddJsonFile("appsettings.Development.json", optional: true)
+            // Buscar el proyecto WebApi de manera confiable
+            var webApiPath = Path.GetFullPath(Path.Combine(solutionDir, "../Payments.WebApi"));
+
+            var config = new ConfigurationBuilder()
+                .SetBasePath(webApiPath)
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: false)
+                .AddJsonFile("appsettings.Development.json", optional: true, reloadOnChange: false)
                 .Build();
 
-            var connectionString = configuration.GetConnectionString("DefaultConnection");
+            // Obtener cadena de conexión
+            var connectionString = config.GetConnectionString("DefaultConnection");
+
+            if (string.IsNullOrWhiteSpace(connectionString))
+                throw new Exception("Error in 'DefaultConnection' in appsettings.json");
 
             var builder = new DbContextOptionsBuilder<PaymentsDbContext>();
             builder.UseSqlServer(connectionString);
