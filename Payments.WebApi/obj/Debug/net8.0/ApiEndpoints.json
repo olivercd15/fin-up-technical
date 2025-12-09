@@ -2,7 +2,7 @@
   {
     "ContainingType": "Payments.WebApi.Controllers.Payments.PaymentsController",
     "Method": "Create",
-    "RelativePath": "api/Payments",
+    "RelativePath": "api/v1/Payments",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -18,7 +18,39 @@
   {
     "ContainingType": "Payments.WebApi.Controllers.Payments.PaymentsController",
     "Method": "GetByCustomer",
-    "RelativePath": "api/Payments",
+    "RelativePath": "api/v1/Payments",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "customerId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Payments.WebApi.Controllers.Payments.PaymentsV2Controller",
+    "Method": "CreateWithMessaging",
+    "RelativePath": "api/v2/Payments",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "Payments.Application.Payments.Commands.CreatePaymentWithMessagingCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Payments.WebApi.Controllers.Payments.PaymentsV2Controller",
+    "Method": "GetByCustomerWithCache",
+    "RelativePath": "api/v2/Payments",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

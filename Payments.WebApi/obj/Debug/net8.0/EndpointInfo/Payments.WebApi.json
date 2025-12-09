@@ -5,7 +5,7 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/Payments": {
+    "/api/v1/Payments": {
       "post": {
         "tags": [
           "Payments"
@@ -43,6 +43,62 @@
       "get": {
         "tags": [
           "Payments"
+        ],
+        "parameters": [
+          {
+            "name": "customerId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v2/Payments": {
+      "post": {
+        "tags": [
+          "PaymentsV2"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePaymentWithMessagingCommand"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePaymentWithMessagingCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePaymentWithMessagingCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePaymentWithMessagingCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "PaymentsV2"
         ],
         "parameters": [
           {
@@ -104,6 +160,28 @@
   "components": {
     "schemas": {
       "CreatePaymentCommand": {
+        "type": "object",
+        "properties": {
+          "customerId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "serviceProvider": {
+            "type": "string",
+            "nullable": true
+          },
+          "amount": {
+            "type": "number",
+            "format": "double"
+          },
+          "currency": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreatePaymentWithMessagingCommand": {
         "type": "object",
         "properties": {
           "customerId": {
