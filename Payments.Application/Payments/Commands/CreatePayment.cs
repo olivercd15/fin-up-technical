@@ -16,7 +16,7 @@ namespace Payments.Application.Payments.Commands
         Guid CustomerId,
         string ServiceProvider,
         decimal Amount,
-        PaymentCurrency Currency = PaymentCurrency.BOB
+        string Currency = "BOB"
     ) : IRequest<Payment>;
 
 
@@ -66,10 +66,10 @@ namespace Payments.Application.Payments.Commands
             }
 
             // Business rules
-            if (req.Currency == PaymentCurrency.USD)
+            if (req.Currency == "USD")
                 throw new AppException("USD currency is not accepted.");
 
-            if (req.Currency == PaymentCurrency.BOB && req.Amount > 1500)
+            if (req.Amount > 1500)
                 throw new AppException("Amount exceeds maximum limit (1500 BOB).");
 
             // Create payment

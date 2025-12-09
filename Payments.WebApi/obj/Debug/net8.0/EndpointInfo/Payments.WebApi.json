@@ -114,18 +114,11 @@
             "format": "double"
           },
           "currency": {
-            "$ref": "#/components/schemas/PaymentCurrency"
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
-      },
-      "PaymentCurrency": {
-        "enum": [
-          0,
-          1
-        ],
-        "type": "integer",
-        "format": "int32"
       },
       "WeatherForecast": {
         "type": "object",

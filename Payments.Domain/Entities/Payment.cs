@@ -13,13 +13,13 @@ namespace Payments.Domain.Entities
         public Guid CustomerId { get; private set; }
         public string ServiceProvider { get; private set; } = null!;
         public decimal Amount { get; private set; }
-        public PaymentCurrency Currency { get; private set; } = PaymentCurrency.BOB;
-        public PaymentStatus Status { get; private set; } = PaymentStatus.Pending;
+        public string Currency { get; private set; } = "BOB";
+        public string Status { get; private set; } = "Pending";
         public DateTime CreatedAt { get; private set; } = DateTime.UtcNow;
 
         private Payment() { } // for EF
 
-        public Payment(Guid customerId, string serviceProvider, decimal amount, PaymentCurrency currency = PaymentCurrency.BOB)
+        public Payment(Guid customerId, string serviceProvider, decimal amount, string currency = "BOB")
         {
             CustomerId = customerId;
             ServiceProvider = serviceProvider;
@@ -27,8 +27,8 @@ namespace Payments.Domain.Entities
             Currency = currency;
         }
 
-        public void MarkRejected() => Status = PaymentStatus.Rejected;
-        public void MarkPending() => Status = PaymentStatus.Pending;
-        public void MarkCompleted() => Status = PaymentStatus.Completed;
+        public void MarkRejected() => Status = "Rejected";
+        public void MarkPending() => Status = "Pending";
+        public void MarkCompleted() => Status = "Completed";
     }
 }
