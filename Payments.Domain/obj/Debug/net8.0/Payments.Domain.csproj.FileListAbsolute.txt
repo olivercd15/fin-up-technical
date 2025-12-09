@@ -1,0 +1,12 @@
+C:\Users\Srodriguez\Documents\Oliver Carranza\MASTER\IAC\FinUpTechnical\Payments.Domain\bin\Debug\net8.0\Payments.Domain.deps.json
+C:\Users\Srodriguez\Documents\Oliver Carranza\MASTER\IAC\FinUpTechnical\Payments.Domain\bin\Debug\net8.0\Payments.Domain.dll
+C:\Users\Srodriguez\Documents\Oliver Carranza\MASTER\IAC\FinUpTechnical\Payments.Domain\bin\Debug\net8.0\Payments.Domain.pdb
+C:\Users\Srodriguez\Documents\Oliver Carranza\MASTER\IAC\FinUpTechnical\Payments.Domain\obj\Debug\net8.0\Payments.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Srodriguez\Documents\Oliver Carranza\MASTER\IAC\FinUpTechnical\Payments.Domain\obj\Debug\net8.0\Payments.Domain.AssemblyInfoInputs.cache
+C:\Users\Srodriguez\Documents\Oliver Carranza\MASTER\IAC\FinUpTechnical\Payments.Domain\obj\Debug\net8.0\Payments.Domain.AssemblyInfo.cs
+C:\Users\Srodriguez\Documents\Oliver Carranza\MASTER\IAC\FinUpTechnical\Payments.Domain\obj\Debug\net8.0\Payments.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Srodriguez\Documents\Oliver Carranza\MASTER\IAC\FinUpTechnical\Payments.Domain\obj\Debug\net8.0\Payments.Domain.sourcelink.json
+C:\Users\Srodriguez\Documents\Oliver Carranza\MASTER\IAC\FinUpTechnical\Payments.Domain\obj\Debug\net8.0\Payments.Domain.dll
+C:\Users\Srodriguez\Documents\Oliver Carranza\MASTER\IAC\FinUpTechnical\Payments.Domain\obj\Debug\net8.0\refint\Payments.Domain.dll
+C:\Users\Srodriguez\Documents\Oliver Carranza\MASTER\IAC\FinUpTechnical\Payments.Domain\obj\Debug\net8.0\Payments.Domain.pdb
+C:\Users\Srodriguez\Documents\Oliver Carranza\MASTER\IAC\FinUpTechnical\Payments.Domain\obj\Debug\net8.0\ref\Payments.Domain.dll

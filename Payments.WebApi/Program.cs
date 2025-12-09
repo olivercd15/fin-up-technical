@@ -1,7 +1,23 @@
+using Microsoft.Extensions.DependencyInjection;
+using Payments.Application.Payments.Commands;
+using FluentValidation;
+using Payments.Infrastructure.DI;
+using MediatR;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Services.AddInfrastructure(
+    builder.Configuration.GetConnectionString("DefaultConnection")
+);
 
+builder.Services.AddMediatR(typeof(CreatePaymentCommand).Assembly);
+
+
+builder.Services.AddValidatorsFromAssemblyContaining<CreatePaymentCommandValidator>();
+
+
+// Add services to the container.
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

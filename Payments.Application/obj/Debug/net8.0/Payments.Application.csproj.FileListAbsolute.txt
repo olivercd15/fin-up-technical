@@ -1,0 +1,16 @@
+C:\Users\Srodriguez\Documents\Oliver Carranza\MASTER\IAC\FinUpTechnical\Payments.Application\bin\Debug\net8.0\Payments.Application.deps.json
+C:\Users\Srodriguez\Documents\Oliver Carranza\MASTER\IAC\FinUpTechnical\Payments.Application\bin\Debug\net8.0\Payments.Application.dll
+C:\Users\Srodriguez\Documents\Oliver Carranza\MASTER\IAC\FinUpTechnical\Payments.Application\bin\Debug\net8.0\Payments.Application.pdb
+C:\Users\Srodriguez\Documents\Oliver Carranza\MASTER\IAC\FinUpTechnical\Payments.Application\bin\Debug\net8.0\Payments.Domain.dll
+C:\Users\Srodriguez\Documents\Oliver Carranza\MASTER\IAC\FinUpTechnical\Payments.Application\bin\Debug\net8.0\Payments.Domain.pdb
+C:\Users\Srodriguez\Documents\Oliver Carranza\MASTER\IAC\FinUpTechnical\Payments.Application\obj\Debug\net8.0\Payments.Application.csproj.AssemblyReference.cache
+C:\Users\Srodriguez\Documents\Oliver Carranza\MASTER\IAC\FinUpTechnical\Payments.Application\obj\Debug\net8.0\Payments.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Srodriguez\Documents\Oliver Carranza\MASTER\IAC\FinUpTechnical\Payments.Application\obj\Debug\net8.0\Payments.Application.AssemblyInfoInputs.cache
+C:\Users\Srodriguez\Documents\Oliver Carranza\MASTER\IAC\FinUpTechnical\Payments.Application\obj\Debug\net8.0\Payments.Application.AssemblyInfo.cs
+C:\Users\Srodriguez\Documents\Oliver Carranza\MASTER\IAC\FinUpTechnical\Payments.Application\obj\Debug\net8.0\Payments.Application.csproj.CoreCompileInputs.cache
+C:\Users\Srodriguez\Documents\Oliver Carranza\MASTER\IAC\FinUpTechnical\Payments.Application\obj\Debug\net8.0\Payments.Application.sourcelink.json
+C:\Users\Srodriguez\Documents\Oliver Carranza\MASTER\IAC\FinUpTechnical\Payments.Application\obj\Debug\net8.0\Payments.3FD144D3.Up2Date
+C:\Users\Srodriguez\Documents\Oliver Carranza\MASTER\IAC\FinUpTechnical\Payments.Application\obj\Debug\net8.0\Payments.Application.dll
+C:\Users\Srodriguez\Documents\Oliver Carranza\MASTER\IAC\FinUpTechnical\Payments.Application\obj\Debug\net8.0\refint\Payments.Application.dll
+C:\Users\Srodriguez\Documents\Oliver Carranza\MASTER\IAC\FinUpTechnical\Payments.Application\obj\Debug\net8.0\Payments.Application.pdb
+C:\Users\Srodriguez\Documents\Oliver Carranza\MASTER\IAC\FinUpTechnical\Payments.Application\obj\Debug\net8.0\ref\Payments.Application.dll

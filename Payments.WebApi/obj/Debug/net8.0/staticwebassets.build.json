@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "K5yMH7xWnZpXPmHzM+nPhiNTtu2ErWBckRgm3voXJvA=",
+  "Source": "Payments.WebApi",
+  "BasePath": "_content/Payments.WebApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
