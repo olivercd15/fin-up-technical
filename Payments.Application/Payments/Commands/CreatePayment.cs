@@ -17,7 +17,7 @@ namespace Payments.Application.Payments.Commands
         string ServiceProvider,
         decimal Amount,
         string Currency = "BOB"
-    ) : IRequest<Payment>;
+    ) : IRequest<ApiResponse<Payment>>;
 
 
     // =========================
@@ -35,44 +35,55 @@ namespace Payments.Application.Payments.Commands
         }
     }
 
+    // =========================
+    //        EVENT DTO
+    // =========================
+    public record PaymentCreatedEvent(
+        Guid PaymentId,
+        Guid CustomerId,
+        decimal Amount,
+        string ServiceProvider,
+        string Currency,
+        DateTime CreatedAt
+    );
+
 
     // =========================
     //        HANDLER
     // =========================
-    public class CreatePaymentCommandHandler : IRequestHandler<CreatePaymentCommand, Payment>
+    public class CreatePaymentCommandHandler : IRequestHandler<CreatePaymentCommand, ApiResponse<Payment>>
     {
         private readonly IWriteRepository<Payment> _writeRepo;
         private readonly IUnitOfWork _uow;
         private readonly IValidator<CreatePaymentCommand> _validator;
+        private readonly IEventBus _eventBus;
 
         public CreatePaymentCommandHandler(
             IWriteRepository<Payment> writeRepo,
             IUnitOfWork uow,
-            IValidator<CreatePaymentCommand> validator)
+            IValidator<CreatePaymentCommand> validator,
+            IEventBus eventBus)
         {
             _writeRepo = writeRepo;
             _uow = uow;
             _validator = validator;
+            _eventBus = eventBus;
         }
 
-        public async Task<Payment> Handle(CreatePaymentCommand req, CancellationToken ct)
+        public async Task<ApiResponse<Payment>> Handle(CreatePaymentCommand req, CancellationToken ct)
         {
-            // FluentValidation
             var validation = await _validator.ValidateAsync(req, ct);
             if (!validation.IsValid)
             {
-                var errors = validation.Errors.Select(e => e.ErrorMessage).ToList();
-                throw new AppValidationException(errors);
+                return ApiResponse<Payment>.Fail(400, "Invalid data provided.");
             }
 
-            // Business rules
             if (req.Currency == "USD")
-                throw new AppException("USD currency is not accepted.");
+                return ApiResponse<Payment>.Fail(400, "USD currency is not accepted.");
 
             if (req.Amount > 1500)
-                throw new AppException("Amount exceeds maximum limit (1500 BOB).");
+                return ApiResponse<Payment>.Fail(400, "Amount exceeds allowed limit.");
 
-            // Create payment
             var payment = new Payment(
                 req.CustomerId,
                 req.ServiceProvider,
@@ -83,7 +94,19 @@ namespace Payments.Application.Payments.Commands
             _writeRepo.Add(payment);
             await _uow.SaveChangesAsync(ct);
 
-            return payment;
+            // Kafka event payment
+            //var paymentEvent = new PaymentCreatedEvent(
+            //    PaymentId: payment.PaymentId,
+            //    CustomerId: payment.CustomerId,
+            //    Amount: payment.Amount,
+            //    ServiceProvider: payment.ServiceProvider,
+            //    Currency: payment.Currency,
+            //    CreatedAt: payment.CreatedAt
+            //);
+
+            await _eventBus.PublishAsync("payments.created", paymentEvent);
+
+            return ApiResponse<Payment>.Created(payment, "Payment created successfully.");
         }
     }
 }
